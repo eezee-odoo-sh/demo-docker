@@ -1,0 +1,15 @@
+*.pyc
+.idea/addons-community-eezee-it.iml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/scopes/scope_settings.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.bzr
+.bzrignore
+.DS_Store
+.coverage
+htmlcov
+invoke.yaml
+docker/volumes

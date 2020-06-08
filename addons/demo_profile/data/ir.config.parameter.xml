@@ -1,0 +1,26 @@
+<odoo noupdate="1">
+    <record model="ir.config_parameter" id="gitlab_export_repo_path">
+        <field name="key">studio.gitlab.export.repo.path</field>
+        <field name="value">/home/odoo/src/user</field>
+    </record>
+
+    <record model="ir.config_parameter" id="gitlab_export_export_url">
+        <field name="key">studio.gitlab.export.url</field>
+        <field name="value">https://gitlab.com/</field>
+    </record>
+
+    <record model="ir.config_parameter" id="gitlab_export_export_token">
+        <field name="key">studio.gitlab.export.token</field>
+        <field name="value">6ugD_bu_yo-pJSj1CsUH</field>
+    </record>
+
+    <record model="ir.config_parameter" id="gitlab_export_export_project">
+        <field name="key">studio.gitlab.export.project_id</field>
+        <field name="value">13466569</field>
+    </record>
+
+    <record model="ir.config_parameter" id="gitlab_export_export_to_branch">
+        <field name="key">to.branch.merge.request</field>
+        <field name="value">develop</field>
+    </record>
+</odoo>
