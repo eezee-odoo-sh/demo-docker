@@ -39,7 +39,7 @@ $ inv stop
 
 ## Update/install Odoo module
 
-To update or install an new module on Odoo.
+To update or install a new module on Odoo.
 
 ```bash
 $ inv run -u %modules_to_update% -i %modules_to_install%
@@ -47,13 +47,12 @@ $ inv run -u %modules_to_update% -i %modules_to_install%
 
 ## Cleaning the project
 
-Cleaning the project: 
+Cleaning the project do: 
 
 * remove the container
 * remove the image
-* remove database
-
-Important : Volumes with data are not removed.
+* remove database (not the container database)
+* remove Odoo volumes
 
 ```bash
 $ inv clean

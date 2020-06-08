@@ -212,10 +212,7 @@ class DockerTaskGateway(TaskInterface):
         # create the new container and update Odoo
         log.info('• Update Odoo')
         command = self._get_docker_base_command()
-        # command = "docker run -p %s:8069 " % self.c.odoo_port
-        # command += "--name %s --link %s:db" % (
-        # self.c.odoo_container_name, self.c.db_container_name)
-        # command += " -t %s -- " % self.c.doker_image_name
+
         command += "-- -d %s" % database
 
         if addons_to_update:
@@ -258,6 +255,10 @@ class DockerTaskGateway(TaskInterface):
         if background:
             command += " -d "
         command += " -v %s:/var/lib/odoo" % (filstore_volume)
+
+        for volume in self.c.data_volumes:
+            command += " -v %s/%s " % (os.getcwd(), volume)
+
         command += " -p %s:8069 " % self.c.odoo_port
         command += "--name %s --link %s:db" % (
             self.c.odoo_container_name, self.c.db_container_name)

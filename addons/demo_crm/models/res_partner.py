@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ResPartner(models.Model):
@@ -26,3 +26,4 @@ class ResPartner(models.Model):
 
     email_2 = fields.Char()
     phone_2 = fields.Char()
+    phone_3 = fields.Char()
