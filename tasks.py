@@ -572,10 +572,10 @@ def _get_addons_path(c):
 
     addons_path = []
 
-    for addon_directory in c.odoo_addons_directories:
+    for addon_directory in c.odoo_addons_directories or []:
         addons_path.append(get_project_base(c) + addon_directory)
 
-    for addon_directory in c.custom_addons_directories:
+    for addon_directory in c.custom_addons_directories or []:
         addons_path.append(get_project_base(c) + addon_directory)
 
     return ",".join(addons_path)
