@@ -31,8 +31,18 @@ $ inv init ignore-image-build
 To start or stop the container simply type
 
 ```bash
-$ inv run
+$ inv start
+# to see log
+$ docker logs %container-name/ID% --follow
 $ inv stop
+```
+
+## Update/install Odoo module
+
+To update or install an new module on Odoo.
+
+```bash
+$ inv run -u %modules_to_update% -i %modules_to_install%
 ```
 
 ## Cleaning the project
