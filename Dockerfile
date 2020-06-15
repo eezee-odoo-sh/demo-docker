@@ -12,11 +12,11 @@ USER root
 
 # Create new directory for enterprise addons
 # Todo this can be in a parent image
-RUN mkdir -p /mnt/enterprise-addons \
-    && chown -R odoo /mnt/enterprise-addons
+# RUN mkdir -p /mnt/enterprise-addons \
+#     && chown -R odoo /mnt/enterprise-addons
 
 # copy enterprise addons on /mnt/enterprise-addons
-COPY ./docker/enterprise  /mnt/enterprise-addons
+# COPY ./docker/enterprise  /mnt/enterprise-addons
 
 
 # Create new directory for EPL addons
@@ -34,7 +34,7 @@ COPY ./docker/conf/odoo.conf /etc/odoo/
 # Install requirements.txt
 RUN python3 -m pip install -r /etc/odoo/requirements.txt
 
-VOLUME ["/mnt/enterprise-addons"]
+# VOLUME ["/mnt/enterprise-addons"]
 
 # Set default user when running the container
 USER odoo

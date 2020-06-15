@@ -1,0 +1,19 @@
+---
+# Expose the port 8069 on 30000 port
+# This service allow to access to the Odoo application externally with the port
+# 30000
+# port: mean the port exposed on the pod
+# targetPort: mean the port exposed on the docker container (odoo)
+# nodePort: mean the port exposed public
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-odoo-service
+spec:
+  selector:
+    app: demo-odoo
+  type: NodePort
+  ports:
+    - port: 8069
+      targetPort: 8069
+      nodePort: 30000

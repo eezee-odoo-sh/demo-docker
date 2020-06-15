@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-odoo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-odoo
+  template:
+    metadata:
+      labels:
+        app: demo-odoo
+    spec:
+      containers:
+        - name: odoo
+          image: odoo:13.0
+          volumeMounts:
+            - name: odoo-web-data
+              mountPath: /var/lib/odoo
+          env:
+            - name: HOST
+              value: 127.0.0.1
+            - name: USER
+              value: odoo
+            - name: PASSWORD
+              value: odoo
+        - name: db
+          image: postgres:10
+          env:
+            - name: POSTGRES_DB
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: odoo
+            - name: POSTGRES_USER
+              value: odoo
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: odoo-db-data
+              mountPath: /var/lib/postgresql/data/pgdata
+      volumes:
+        - name: odoo-web-data
+          emptyDir: {}
+        - name: odoo-db-data
+          emptyDir: {}

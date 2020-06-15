@@ -9,7 +9,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - .:/mnt/extra-addons
-      - ./docker/enterprise:/mnt/enterprise
+      # - ./docker/enterprise:/mnt/enterprise
       - ./docker/volumes/odoo
       - ./docker/conf:/etc/odoo
   db:
